@@ -62,6 +62,7 @@ const NavbarOption: React.FC<Props> = ({
             ${darkMode ? "text-white" : "text-black"}
             ${darkMode ? "hover:text-black" : "hover:text-white"}
           `}
+          onClick={onClick}
         >
           <Icon size={24} />
         </div>

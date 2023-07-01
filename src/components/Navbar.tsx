@@ -1,23 +1,37 @@
+import { useCallback } from "react";
+import { Link } from "react-router-dom";
+
 import Container from "./Container";
 import NavbarLink from "./NavbarLink";
 import NavbarOption from "./NavbarOption";
 
-import { Link } from "react-router-dom";
-
 import { RiShoppingBag3Fill } from "react-icons/ri";
 import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
 
+import useDarkMode from "../hooks/useDarkMode";
+
 interface Props {
-  darkMode?: boolean;
+  darkMode: boolean;
 }
 
 const Navbar: React.FC<Props> = ({ darkMode }) => {
+  const dark = useDarkMode();
+
+  const handleDarkMode = useCallback(() => {
+    dark.onOpen();
+  }, [dark]);
+
+  const handleLightMode = useCallback(() => {
+    dark.onClose();
+  }, [dark]);
+
   return (
     <nav
       className={`
         py-4
         border-b
         transition
+        duration-1000
         ${darkMode ? "bg-neutral-950" : "bg-white"}
       `}
     >
@@ -56,10 +70,10 @@ const Navbar: React.FC<Props> = ({ darkMode }) => {
               gap-x-4
             "
             >
-              <NavbarLink href="/" title="Home" />
-              <NavbarLink href="/" title="Suits" />
-              <NavbarLink href="/" title="Shirts" />
-              <NavbarLink href="/" title="Glasses" />
+              <NavbarLink href="/" title="Home" darkMode={dark.isOpen} />
+              <NavbarLink href="/" title="Suits" darkMode={dark.isOpen} />
+              <NavbarLink href="/" title="Shirts" darkMode={dark.isOpen} />
+              <NavbarLink href="/" title="Glasses" darkMode={dark.isOpen} />
             </ul>
             <div
               className="
@@ -69,15 +83,26 @@ const Navbar: React.FC<Props> = ({ darkMode }) => {
               "
             >
               {darkMode ? (
-                <NavbarOption element={1} icon={MdOutlineLightMode} />
+                <NavbarOption
+                  element={1}
+                  icon={MdOutlineLightMode}
+                  darkMode={dark.isOpen}
+                  onClick={handleLightMode}
+                />
               ) : (
-                <NavbarOption element={1} icon={MdOutlineDarkMode} />
+                <NavbarOption
+                  element={1}
+                  icon={MdOutlineDarkMode}
+                  darkMode={dark.isOpen}
+                  onClick={handleDarkMode}
+                />
               )}
               <NavbarOption
                 element={2}
                 icon={RiShoppingBag3Fill}
                 href="cart"
                 title="0"
+                darkMode={dark.isOpen}
               />
             </div>
           </div>

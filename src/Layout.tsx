@@ -1,13 +1,13 @@
 import Navbar from "./components/Navbar";
 
-interface Props {
-  darkMode?: boolean;
-}
+import useDarkMode from "./hooks/useDarkMode";
 
-const Layout: React.FC<Props> = ({ darkMode }) => {
+const Layout = () => {
+  const darkMode = useDarkMode();
+
   return (
     <div>
-      <Navbar />
+      <Navbar darkMode={darkMode.isOpen} />
     </div>
   );
 };
