@@ -1,6 +1,7 @@
 import Container from "./components/Container";
 import Cover from "./components/Cover";
 import Navbar from "./components/Navbar";
+import Products from "./components/Products";
 
 interface Props {
   darkMode?: boolean;
@@ -8,7 +9,12 @@ interface Props {
 
 const Layout: React.FC<Props> = ({ darkMode }) => {
   return (
-    <div>
+    <div
+      className={`
+        duration-1000
+        ${darkMode && "bg-neutral-950"}
+      `}
+    >
       <Navbar darkMode={darkMode} />
       <Container>
         <div
@@ -18,6 +24,7 @@ const Layout: React.FC<Props> = ({ darkMode }) => {
         >
           <Cover title="explore the special collection!" darkMode={darkMode} />
         </div>
+        <Products title="Featrued Products" darkMode={darkMode} />
       </Container>
     </div>
   );
