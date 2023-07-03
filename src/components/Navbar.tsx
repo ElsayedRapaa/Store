@@ -5,7 +5,7 @@ import Container from "./Container";
 import NavbarLink from "./NavbarLink";
 import NavbarOption from "./NavbarOption";
 
-import { RiShoppingBag3Fill } from "react-icons/ri";
+import { RiShoppingBag2Line } from "react-icons/ri";
 import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
 
 import useDarkMode from "../hooks/useDarkMode";
@@ -99,7 +99,7 @@ const Navbar: React.FC<Props> = ({ darkMode }) => {
               )}
               <NavbarOption
                 element={2}
-                icon={RiShoppingBag3Fill}
+                icon={RiShoppingBag2Line}
                 href="cart"
                 title="0"
                 darkMode={dark.isOpen}

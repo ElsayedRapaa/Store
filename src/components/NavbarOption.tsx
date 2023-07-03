@@ -26,22 +26,20 @@ const NavbarOption: React.FC<Props> = ({
           to={`/${href}`}
           className={`
             w-fit
-            px-2
+            px-4
             py-1
             rounded-full
-            border
             cursor-pointer
-            hover:shadow-md
             transition
             ${element !== 1 && "flex"}
             ${element !== 1 && "items-center"}
-            ${element !== 1 && "gap-x-4"}
-            ${darkMode ? "hover:bg-white" : "hover:bg-black"}
-            ${darkMode ? "text-white" : "text-black"}
-            ${darkMode ? "hover:text-black" : "hover:text-white"}
+            ${element !== 1 && "gap-x-2"}
+            ${darkMode ? "bg-white" : "bg-black"}
+            ${darkMode ? "text-black" : "text-white"}
+            ${darkMode ? "hover:bg-opacity-80" : "hover:bg-opacity-80"}
           `}
         >
-          <Icon size={24} />
+          <Icon size={22} />
           <span>{title}</span>
         </Link>
       ) : (
@@ -51,20 +49,18 @@ const NavbarOption: React.FC<Props> = ({
             px-2
             py-1
             rounded-full
-            border
             cursor-pointer
-            hover:shadow-md
             transition
             ${element !== 1 && "flex"}
             ${element !== 1 && "items-center"}
             ${element !== 1 && "gap-x-4"}
-            ${darkMode ? "hover:bg-white" : "hover:bg-black"}
-            ${darkMode ? "text-white" : "text-black"}
-            ${darkMode ? "hover:text-black" : "hover:text-white"}
+            ${darkMode ? "bg-white" : "bg-black"}
+            ${darkMode ? "text-black" : "text-white"}
+            ${darkMode ? "hover:bg-opacity-80" : "hover:bg-opacity-80"}
           `}
           onClick={onClick}
         >
-          <Icon size={24} />
+          <Icon size={22} />
         </div>
       )}
     </>
