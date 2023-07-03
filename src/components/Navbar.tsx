@@ -11,7 +11,7 @@ import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
 import useDarkMode from "../hooks/useDarkMode";
 
 interface Props {
-  darkMode: boolean;
+  darkMode?: boolean;
 }
 
 const Navbar: React.FC<Props> = ({ darkMode }) => {

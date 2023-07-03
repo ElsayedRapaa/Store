@@ -1,13 +1,24 @@
+import Container from "./components/Container";
+import Cover from "./components/Cover";
 import Navbar from "./components/Navbar";
 
-import useDarkMode from "./hooks/useDarkMode";
+interface Props {
+  darkMode?: boolean;
+}
 
-const Layout = () => {
-  const darkMode = useDarkMode();
-
+const Layout: React.FC<Props> = ({ darkMode }) => {
   return (
     <div>
-      <Navbar darkMode={darkMode.isOpen} />
+      <Navbar darkMode={darkMode} />
+      <Container>
+        <div
+          className="
+            py-8
+          "
+        >
+          <Cover title="explore the special collection!" darkMode={darkMode} />
+        </div>
+      </Container>
     </div>
   );
 };
