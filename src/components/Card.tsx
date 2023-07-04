@@ -4,9 +4,10 @@ import { BsArrowsFullscreen, BsCart2 } from "react-icons/bs";
 
 interface Props {
   darkMode?: boolean;
+  onClick: () => void;
 }
 
-const Card: React.FC<Props> = ({ darkMode }) => {
+const Card: React.FC<Props> = ({ darkMode, onClick }) => {
   return (
     <Link
       to="/"
@@ -57,6 +58,7 @@ const Card: React.FC<Props> = ({ darkMode }) => {
             group-hover:opacity-100
             duration-300
           "
+          onClick={onClick}
         >
           <BsArrowsFullscreen size={18} />
         </span>

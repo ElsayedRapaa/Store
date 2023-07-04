@@ -3,9 +3,10 @@ import Card from "./Card";
 interface Props {
   title: string;
   darkMode?: boolean;
+  onClick: () => void;
 }
 
-const Products: React.FC<Props> = ({ title, darkMode }) => {
+const Products: React.FC<Props> = ({ title, darkMode, onClick }) => {
   return (
     <section
       className="
@@ -36,10 +37,10 @@ const Products: React.FC<Props> = ({ title, darkMode }) => {
           gap-4
         "
       >
-        <Card darkMode={darkMode} />
-        <Card darkMode={darkMode} />
-        <Card darkMode={darkMode} />
-        <Card darkMode={darkMode} />
+        <Card darkMode={darkMode} onClick={onClick} />
+        <Card darkMode={darkMode} onClick={onClick} />
+        <Card darkMode={darkMode} onClick={onClick} />
+        <Card darkMode={darkMode} onClick={onClick} />
       </div>
     </section>
   );
